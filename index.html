@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Responsive Menu Navigation with JavaScript</title>
+</head>
+<body>
+<div>
+  <header>
+    <img class="logo" src="img/logo.png" alt="my logo">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="hide-btn">Click me</button>
+  </header>
+</div>
+
+
+<script>
+  window.onresize = function () {
+    let element = document.querySelector('button')
+    let screenSize = window.innerWidth
+
+    // Target device that falls within this range (0 - 767)
+    if (screenSize <= 767) {
+      element.classList.remove('hide-btn')
+    }
+  }
+</script>
+</body>
+</html>
