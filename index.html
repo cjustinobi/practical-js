@@ -23,12 +23,17 @@
 
 <script>
   window.onresize = function () {
-    let element = document.querySelector('button')
+    let btn = document.querySelector('button')
+    let nav = document.querySelector('.nav')
     let screenSize = window.innerWidth
 
     // Target device that falls within this range (0 - 767)
     if (screenSize <= 767) {
-      element.classList.remove('hide-btn')
+      btn.classList.remove('hide-btn')
+      nav.classList.add('hide-nav')
+    } else {
+      btn.classList.add('hide-btn')
+      nav.classList.remove('hide-nav')
     }
   }
 </script>
