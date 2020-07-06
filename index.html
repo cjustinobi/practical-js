@@ -16,13 +16,27 @@
       <li><a href="#">History</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <button class="hide-btn">Click me</button>
+    <button onclick="showSidebar()" class="hide-btn">Click me</button>
   </header>
+
+  <div class="sidebar hide-sidebar">
+    <button onclick="hideSidebar()">&#10005;</button>
+    <ul class="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
 </div>
 
 
 <script>
-  window.onresize = function () {
+  window.onresize = resizeScreen
+
+  resizeScreen();
+
+  function resizeScreen() {
     let btn = document.querySelector('button')
     let nav = document.querySelector('.nav')
     let screenSize = window.innerWidth
@@ -34,7 +48,20 @@
     } else {
       btn.classList.add('hide-btn')
       nav.classList.remove('hide-nav')
+      hideSidebar()
     }
+  }
+  
+  function showSidebar() {
+    let sidebar = document.querySelector('.sidebar')
+    if (sidebar.classList.contains('hide-sidebar')) {
+      sidebar.classList.remove('hide-sidebar')
+    }
+  }
+
+  function hideSidebar() {
+    let sidebar = document.querySelector('.sidebar')
+    sidebar.classList.add('hide-sidebar')
   }
 </script>
 </body>
